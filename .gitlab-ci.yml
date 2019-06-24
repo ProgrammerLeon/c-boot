@@ -1,0 +1,19 @@
+before_script:
+
+variables:
+  MAVEN_OPTS: "-Dproject.build.sourceEncoding=UTF-8 -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=WARN -Dorg.slf4j.simpleLogger.showDateTime=true -Djava.awt.headless=true"
+  MAVEN_CLI_OPTS: "-s deploy/settings.xml --show-version $MAVEN_OPTS"
+
+stages:
+  - deploy
+
+
+deploy:
+  stage: deploy
+  script:
+    - 'mvn $MAVEN_CLI_OPTS clean deploy '
+  artifacts:
+    paths:
+      - target/
+  when: manual
+
