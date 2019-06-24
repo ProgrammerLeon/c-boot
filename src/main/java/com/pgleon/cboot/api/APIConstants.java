@@ -1,13 +1,16 @@
 package com.pgleon.cboot.api;
 
-
+/**
+ * @Author Leon
+ * @Description
+ **/
 
 public class APIConstants {
 
     public interface Headers {
 
-        String EBT_Authorization = "C-ARC-Authorization";
-        String EBT_TOKEN = "C-ARC-Token";
+        String Authorization = "C-ARC-Authorization";
+        String TOKEN = "C-ARC-Token";
 
     }
 
