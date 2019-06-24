@@ -1,3 +1,4 @@
+image: fenfenxu/docker-fullstack-build-tools:latest
 before_script:
 
 variables:
