@@ -1,10 +1,10 @@
 
-<img src="/doc/Wechat.png" width="50%" height="50%" />
+<img src="doc/carc_gray.png" width="50%" height="50%" />
 
 # C-Boot: C-ARC 架构基础项目
 
 -------
-
+    
 ## 项目介绍
 
 C-Boot 是一个针对 Spring Boot 进行二次封装的基础项目。C-Boot 在重新封装一系列基础功能后可作为
@@ -57,7 +57,7 @@ For more details, see [quick-start.](https://nacos.io/en-us/docs/quick-start.htm
 ## Quick start for other open-source projects:
 * [Quick start with Nacos command and console](https://nacos.io/en-us/docs/quick-start.html)
 
-* [Quick start with dubbo](https://nacos.io/en-us/docs/use-nacos-with-dubbo.html)
+* [Quick start with dubbo](https://nacos.io/en-us/docs/use``-nacos-with-dubbo.html)
 
 * [Quick start with spring cloud](https://nacos.io/en-us/docs/quick-start-spring-cloud.html)
 

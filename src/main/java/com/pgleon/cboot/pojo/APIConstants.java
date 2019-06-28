@@ -1,4 +1,4 @@
-package com.pgleon.cboot.api;
+package com.pgleon.cboot.pojo;
 
 /**
  * @Author Leon
@@ -9,7 +9,7 @@ public class APIConstants {
 
     public interface Headers {
 
-        String Authorization = "C-ARC-Authorization";
+        String Authorization = "C-ARC-AuthorizationDTO";
         String TOKEN = "C-ARC-Token";
 
     }

@@ -1,13 +1,13 @@
 package com.pgleon.cboot;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import com.pgleon.cboot.config.EmbeddedJettyConfig;
+import com.pgleon.cboot.config.WebConfig;
+import org.springframework.context.annotation.Import;
 
-@SpringBootApplication
+@Import({EmbeddedJettyConfig.class, WebConfig.class})
 public class BaseApplication {
-
-    public static void main(String[] args) {
-        SpringApplication.run(BaseApplication.class, args);
+    static {
+        System.setProperty("dubbo.application.logger", "slf4j");
     }
 
 }
