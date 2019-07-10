@@ -11,6 +11,7 @@ public class APIConstants {
 
         String Authorization = "C-ARC-AuthorizationDTO";
         String TOKEN = "C-ARC-Token";
+        String USER_ID = "C-ARC-USER-ID";
 
     }
 

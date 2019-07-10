@@ -18,6 +18,7 @@
         <fastjson.version>1.2.58</fastjson.version>
         <joda-time.version>2.10</joda-time.version>
         <joda-money.version>1.0</joda-money.version>
+        <user.version>0.0.1-SNAPSHOT</user.version>
     </properties>
 
     <dependencies>
@@ -111,6 +112,14 @@
             <artifactId>joda-money</artifactId>
             <version>${joda-money.version}</version>
         </dependency>
+        <!--rpc service start-->
+        <dependency>
+            <groupId>com.pgleon.rpcapi</groupId>
+            <artifactId>user</artifactId>
+            <version>${user.version}</version>
+        </dependency>
+        <!--rpc service end-->
+
 
 
     </dependencies>

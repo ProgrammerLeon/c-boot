@@ -1,11 +1,15 @@
 package com.pgleon.cboot.config;
 
 import com.pgleon.cboot.interceptor.SignInterceptor;
+import com.pgleon.cboot.interceptor.UserIdentityInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import java.util.List;
 
 /**
  * @Auther: leon
@@ -22,8 +26,19 @@ public class WebConfig implements WebMvcConfigurer {
     public HandlerInterceptor signInterceptor() {
         return new SignInterceptor();
     }
+    @Bean
+    public HandlerInterceptor userIdentityInterceptor() {
+        return new UserIdentityInterceptor();
+    }
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(signInterceptor());
+        registry.addInterceptor(userIdentityInterceptor());
+
+    }
+
+    @Override
+    public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
+
     }
 }
