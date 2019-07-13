@@ -1,9 +1,13 @@
 package com.pgleon.cboot.config;
 
+import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.alibaba.fastjson.support.config.FastJsonConfig;
+import com.pgleon.cboot.converter.CustomHttpMessageConverter;
 import com.pgleon.cboot.interceptor.SignInterceptor;
 import com.pgleon.cboot.interceptor.UserIdentityInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -19,6 +23,9 @@ import java.util.List;
  * SpringBoot 2.0 后，该类被标记为@Deprecated。因此我们靠实现WebMvcConfigurer接口来实现。
  */
 
+@Import({
+
+})
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
 
@@ -37,8 +44,15 @@ public class WebConfig implements WebMvcConfigurer {
 
     }
 
+    @Bean
+    public CustomHttpMessageConverter getCustomHttpMessageConverter(){
+        CustomHttpMessageConverter converter = new CustomHttpMessageConverter();
+        FastJsonConfig config = new FastJsonConfig();
+        config.setSerializerFeatures(SerializerFeature.DisableCircularReferenceDetect,SerializerFeature.WriteMapNullValue);
+        return converter;
+    }
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
-
+        converters.add(getCustomHttpMessageConverter());
     }
 }

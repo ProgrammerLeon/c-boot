@@ -1,26 +1,26 @@
 
 <img src="https://c-arc.oss-cn-beijing.aliyuncs.com/doc/img/carc_gray.png" width="" height="" />
 
-# C-Boot : SpringBoot 再封装
+# C-Boot : 基于 SpringBoot 的微服务基础框架
 
 -------
 
 ## 项目介绍
 
-C-Boot 是一个针对 Spring Boot 进行二次封装的基础项目。C-Boot 在重新封装一系列基础功能后可作为
+C-Boot 是一个针对 Spring Boot 进行二次封装的微服务基础框架。C-Boot 在重新封装一系列基础功能后可作为
 基础依赖应用到项目之中。以下是在 Spring Boot 2.1.5 版本基础之上增加功能介绍：
 
 * **API 接口签名验证**
   
     Nacos makes it simple for services to register themselves and to discover other services via a DNS or HTTP interface. Nacos also provides real-time healthchecks of services to prevent sending requests to unhealthy hosts or service instance.
 
-* **Dynamic Configuration Management**
+* **分页查询**
   
   Dynamic Configuration Service allows you to manage configurations of all services in a centralized and dynamic manner across all environments. Nacos eliminates the need to redeploy applications and services when configurations are updated，which makes configuration changes more efficient and agile.
 
-* **Dynamic DNS Service**
+* **自定义 HttpMessageConverter**
 
-   Nacos supports weighted routing, making it easier for you to implement mid-tier load balancing, flexible routing policies, flow control, and simple DNS resolution services in the production environment within your data center. It helps you to implement DNS-based service discovery easily and prevent applications from coupling to vendor-specific service discovery APIs.
+   针对接口返回值进行格式化统一处理，返回一段统一格式的包含业务数据与附带信息的JSON，方便前端统一解析。
 
 * **Service and MetaData Management**
 	
