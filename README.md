@@ -12,79 +12,59 @@ C-Boot 是一个针对 Spring Boot 进行二次封装的微服务基础框架。
 
 * **API 接口签名验证**
   
-    Nacos makes it simple for services to register themselves and to discover other services via a DNS or HTTP interface. Nacos also provides real-time healthchecks of services to prevent sending requests to unhealthy hosts or service instance.
-
-* **分页查询**
+    数据接口遵循 RESTful API 设计规范，针对请求，统一进行鉴权认证。当用户向服务器发送用户名和密码（或其他登录凭据），服务器验证通过后，返回用户信息并颁发 token。之后该用户发起的所有请求均携带该 token 与签名信息。服务引入C-Boot之后，自动截取请求信息根据 token 与签名信息进行用户鉴权，确保请求合法。
   
-  Dynamic Configuration Service allows you to manage configurations of all services in a centralized and dynamic manner across all environments. Nacos eliminates the need to redeploy applications and services when configurations are updated，which makes configuration changes more efficient and agile.
-
+  
 * **自定义 HttpMessageConverter**
 
-   针对接口返回值进行格式化统一处理，返回一段统一格式的包含业务数据与附带信息的JSON，方便前端统一解析。
+   针对接口返回值进行格式化统一处理，返回一段统一格式的包含业务数据与附带信息（状态码、分页数据等）的JSON，方便前端统一解析。
+   
+* **分页查询**
 
-* **Service and MetaData Management**
+   添加分页查询支持，通过API接口进行分页查询可以指定查询结果分页显示，控制每次返回的数据量。
+
+
+* **日志处理**
 	
 	Nacos provides an easy-to-use service dashboard to help you manage your services metadata, configuration, kubernetes DNS, service health and metrics statistics.
 
 
-## Quick Start
-It is super easy to get started with your first project.
+## 使用指南
+将项目打包上传至Maven仓库，在`pom.xml`文件中直接引用即可。也可在项目中直接引用jar包。
 
-#### Step 1: Download the binary package 
-
-You can download the package from the  [latest stable release](https://github.com/alibaba/nacos/releases).  
-
-Take release nacos-server-0.9.0.zip for example.
+#### Step 1: 打包 C-Boot 项目
+使用指定 Maven 配置，进行打包。
 ```
-unzip nacos-server-0.9.0.zip
-cd nacos/bin 
+mvn -s deploy/settings.xml clean 
+
 ```
 
-#### Step 2: Start Server
+#### Step 2: 引入 C-Boot
 
-On the **Linux/Unix/Mac** platform, run the following command to start server with standalone mode: 
-```
-sh startup.sh -m standalone
-```
+在项目中添加C-Boot依赖，在 `Application.class`启动类中继承 C-Boot 所提供的 `BaseApplication.class` 即可。
 
-On the **Windows** platform, run the following command to start server with standalone mode.  Alternatively, you can also double-click the startup.cmd to run NacosServer.
-```
-cmd startup.cmd -m standalone
 ```
 
-For more details, see [quick-start.](https://nacos.io/en-us/docs/quick-start.html)
+@SpringBootApplication
+public class Application extends BaseApplication {
 
+    public static final void main(String[] args) {
+    
+        SpringApplication.run(Application.class, args);
+    }
 
+}
+```
 
-
-## Documentation
-
-You can view the full documentation from the [Nacos website](https://nacos.io/en-us/docs/what-is-nacos.html).
-
-All the latest and long-term notice can also be found here from [Github notice issue](https://github.com/alibaba/nacos/labels/notice)
-
-
-## Contributing
-
-Contributors are welcomed to join Nacos project. Please check [CONTRIBUTING](./CONTRIBUTING.md) about how to contribute to this project.
-
-## Other Related Project Repositories
-
-* [nacos-spring-project](https://github.com/nacos-group/nacos-spring-project) provides the integration functionality for Spring.
-* [nacos-group](https://github.com/nacos-group) is the reposity that hosts the eco tools for Nacos, such as SDK, synchronization tool, etc.
-* [spring-cloud-alibaba](https://github.com/spring-cloud-incubator/spring-cloud-alibaba) provides the one-stop solution for application development over Alibaba middleware which includes Nacos.
 
 ## Contact
 
 
 
-* Join us from DingDing. 
+* 添加作者微信，获取文档等更过项目信息
 
-<img src="doc/Wechat.png" width="50%" height="50%" />
+<img src="https://c-arc.oss-cn-beijing.aliyuncs.com/doc/img/Wechat.png" width="50%" height="50%" />
 
-## Who is using
-
-These are only part of the companies using Nacos, for reference only. If you are using Nacos, please [add your company here](https://github.com/alibaba/nacos/issues/273) to tell us your scenario to make Nacos better.
 
 
 
