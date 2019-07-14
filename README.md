@@ -26,7 +26,6 @@ C-Boot 是一个针对 Spring Boot 进行二次封装的微服务基础框架。
 
 * **日志处理**
 	
-	Nacos provides an easy-to-use service dashboard to help you manage your services metadata, configuration, kubernetes DNS, service health and metrics statistics.
 
 
 ## 使用指南
