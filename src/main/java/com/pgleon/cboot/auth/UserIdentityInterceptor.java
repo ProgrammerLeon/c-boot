@@ -1,9 +1,8 @@
-package com.pgleon.cboot.interceptor;
+package com.pgleon.cboot.auth;
 
 import com.google.common.base.Strings;
 import com.pgleon.cboot.exception.UserException;
-import com.pgleon.cboot.pojo.APIConstants;
-import com.pgleon.cboot.pojo.UserIdentityDTO;
+import com.pgleon.cboot.api.APIConstants;
 import com.pgleon.cboot.service.UserIdentityService;
 import com.pgleon.rpcapi.user.enums.UserTypeEnum;
 import org.slf4j.Logger;
@@ -38,7 +37,7 @@ public class UserIdentityInterceptor extends HandlerInterceptorAdapter {
         MethodParameter[] methodParameters = handlerMethod.getMethodParameters();
         boolean needUserIdentity = false;
         for (MethodParameter methodParameter : methodParameters) {
-            if (UserIdentityDTO.class.isAssignableFrom(methodParameter.getParameterType())) {
+            if (UserIdentity.class.isAssignableFrom(methodParameter.getParameterType())) {
                 needUserIdentity = true;
                 break;
             }
@@ -51,7 +50,7 @@ public class UserIdentityInterceptor extends HandlerInterceptorAdapter {
         if (Strings.isNullOrEmpty(token)) {
             throw new UserException.TokenInvalidException("Token为空 : " + token);
         }
-        UserIdentityDTO userIdentity = null;
+        UserIdentity userIdentity = null;
         try {
             userIdentity = userIdentityService.get(token);
         } catch (Exception e) {

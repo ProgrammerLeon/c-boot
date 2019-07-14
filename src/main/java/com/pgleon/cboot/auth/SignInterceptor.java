@@ -1,8 +1,6 @@
-package com.pgleon.cboot.interceptor;
+package com.pgleon.cboot.auth;
 
 import com.pgleon.cboot.annotation.WithoutSign;
-import com.pgleon.cboot.pojo.AuthorizationDTO;
-import com.pgleon.cboot.utils.SignUtils;
 import com.pgleon.cboot.exception.SignException;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
@@ -29,7 +27,7 @@ public class SignInterceptor extends HandlerInterceptorAdapter {
         if (null != handlerMethod.getMethodAnnotation(WithoutSign.class)) {
             return true;
         }
-        AuthorizationDTO authInfo = SignUtils.parseAuthInfo(request);
+        Authorization authInfo = SignUtils.parseAuthInfo(request);
         if (authInfo == null) {
             throw new SignException.SignParamIllegalException("签名信息缺少必要参数");
         }

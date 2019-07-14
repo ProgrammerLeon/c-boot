@@ -1,4 +1,4 @@
-package com.pgleon.cboot.pojo;
+package com.pgleon.cboot.api;
 
 import org.springframework.http.HttpStatus;
 

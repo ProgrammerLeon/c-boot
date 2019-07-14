@@ -1,4 +1,4 @@
-package com.pgleon.cboot.pojo;
+package com.pgleon.cboot.auth;
 
 /**
  * Created by leon on 2019-06-25 11:18
@@ -6,7 +6,7 @@ package com.pgleon.cboot.pojo;
  * 签名信息数据传输对象
  */
 
-public class AuthorizationDTO {
+public class Authorization {
 
     private long signTimestamp;
     private String signVersion;

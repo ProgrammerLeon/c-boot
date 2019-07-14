@@ -1,9 +1,7 @@
-package com.pgleon.cboot.converter;
+package com.pgleon.cboot.api;
 
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 import com.google.common.collect.ImmutableMap;
-import com.pgleon.cboot.pojo.APIErrorResponse;
-import com.pgleon.cboot.pojo.PagingApiResponse;
 import org.springframework.http.HttpOutputMessage;
 import org.springframework.http.converter.HttpMessageNotWritableException;
 
