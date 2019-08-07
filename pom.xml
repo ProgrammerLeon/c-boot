@@ -121,7 +121,6 @@
         <!--rpc service end-->
 
 
-
     </dependencies>
 
     <dependencyManagement>
@@ -167,18 +166,53 @@
 
 
     <profiles>
+
         <profile>
-            <id>rdc-private-repo</id>
+            <id>dev</id>
+            <!-- 默认激活开发配置 -->
+
+            <properties>
+                <maven.profiles.activation>debug</maven.profiles.activation>
+                <maven-releases-repo-url>https://repo.rdc.aliyun.com/repository/73374-release-BlycQO/
+                </maven-releases-repo-url>
+                <maven-snapshots-repo-url>https://repo.rdc.aliyun.com/repository/73374-snapshot-jLRLXR/
+                </maven-snapshots-repo-url>
+            </properties>
             <repositories>
                 <repository>
-                    <id>rdc-releases</id>
-                    <url>https://repo.rdc.aliyun.com/repository/73374-release-BlycQO/</url>
-                </repository>
-                <repository>
-                    <id>rdc-snapshots</id>
-                    <url>https://repo.rdc.aliyun.com/repository/73374-snapshot-jLRLXR/</url>
+                    <id>maven-public</id>
+                    <name>aliyun maven public</name>
+                    <url>https://maven.aliyun.com/repository/public</url>
                 </repository>
             </repositories>
+
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>maven-public</id>
+                    <name>aliyun maven public</name>
+                    <url>https://maven.aliyun.com/repository/public</url>
+                </pluginRepository>
+            </pluginRepositories>
+        </profile>
+        <profile>
+            <id>test</id>
+            <properties>
+                <maven.profiles.activation>test</maven.profiles.activation>
+                <maven-releases-repo-url>https://repo.rdc.aliyun.com/repository/73374-release-BlycQO/
+                </maven-releases-repo-url>
+                <maven-snapshots-repo-url>https://repo.rdc.aliyun.com/repository/73374-snapshot-jLRLXR/
+                </maven-snapshots-repo-url>
+            </properties>
+        </profile>
+        <profile>
+            <id>prod</id>
+            <properties>
+                <maven.profiles.activation>prod</maven.profiles.activation>
+                <maven-releases-repo-url>https://repo.rdc.aliyun.com/repository/73374-release-BlycQO/
+                </maven-releases-repo-url>
+                <maven-snapshots-repo-url>https://repo.rdc.aliyun.com/repository/73374-snapshot-jLRLXR/
+                </maven-snapshots-repo-url>
+            </properties>
         </profile>
     </profiles>
 
@@ -186,11 +220,11 @@
     <distributionManagement>
         <repository>
             <id>rdc-releases</id>
-            <url>https://repo.rdc.aliyun.com/repository/73374-release-BlycQO/</url>
+            <url>${maven-releases-repo-url}</url>
         </repository>
         <snapshotRepository>
             <id>rdc-snapshots</id>
-            <url>https://repo.rdc.aliyun.com/repository/73374-snapshot-jLRLXR/</url>
+            <url>${maven-snapshots-repo-url}</url>
         </snapshotRepository>
     </distributionManagement>
 

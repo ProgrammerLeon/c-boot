@@ -16,99 +16,51 @@
     </servers>
     <profiles>
         <profile>
-            <id>nexus</id>
+            <id>dev</id>
             <repositories>
                 <repository>
                     <id>central</id>
                     <url>http://maven.aliyun.com/nexus/content/groups/public</url>
-                    <releases>
-                        <enabled>true</enabled>
-                    </releases>
-                    <snapshots>
-                        <enabled>false</enabled>
-                    </snapshots>
-                </repository>
-                <repository>
-                    <id>snapshots</id>
-                    <url>http://maven.aliyun.com/nexus/content/groups/public</url>
-                    <releases>
-                        <enabled>false</enabled>
-                    </releases>
-                    <snapshots>
-                        <enabled>true</enabled>
-                    </snapshots>
-                </repository>
-                <repository>
-                    <id>rdc-releases</id>
-                    <url>https://repo.rdc.aliyun.com/repository/73374-release-BlycQO/</url>
-                    <releases>
-                        <enabled>true</enabled>
-                    </releases>
-                    <snapshots>
-                        <enabled>false</enabled>
-                    </snapshots>
-                </repository>
-                <repository>
-                    <id>rdc-snapshots</id>
-                    <url>https://repo.rdc.aliyun.com/repository/73374-snapshot-jLRLXR/</url>
-                    <releases>
-                        <enabled>false</enabled>
-                    </releases>
-                    <snapshots>
-                        <enabled>true</enabled>
-                    </snapshots>
                 </repository>
             </repositories>
             <pluginRepositories>
                 <pluginRepository>
                     <id>central</id>
                     <url>http://maven.aliyun.com/nexus/content/groups/public</url>
-                    <releases>
-                        <enabled>true</enabled>
-                    </releases>
-                    <snapshots>
-                        <enabled>false</enabled>
-                    </snapshots>
                 </pluginRepository>
-                <pluginRepository>
-                    <id>snapshots</id>
+            </pluginRepositories>
+        </profile>
+        <profile>
+            <id>test</id>
+            <repositories>
+                <repository>
+                    <id>central</id>
                     <url>http://maven.aliyun.com/nexus/content/groups/public</url>
-                    <releases>
-                        <enabled>false</enabled>
-                    </releases>
-                    <snapshots>
-                        <enabled>true</enabled>
-                    </snapshots>
-                </pluginRepository>
+                </repository>
+            </repositories>
+            <pluginRepositories>
                 <pluginRepository>
-                    <id>rdc-releases</id>
-                    <url>https://repo.rdc.aliyun.com/repository/73374-release-BlycQO/</url>
-                    <releases>
-                        <enabled>true</enabled>
-                    </releases>
-                    <snapshots>
-                        <enabled>false</enabled>
-                    </snapshots>
+                    <id>central</id>
+                    <url>http://maven.aliyun.com/nexus/content/groups/public</url>
                 </pluginRepository>
+            </pluginRepositories>
+        </profile>
+        <profile>
+            <id>prod</id>
+            <repositories>
+                <repository>
+                    <id>central</id>
+                    <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+                </repository>
+            </repositories>
+            <pluginRepositories>
                 <pluginRepository>
-                    <id>rdc-snapshots</id>
-                    <url>https://repo.rdc.aliyun.com/repository/73374-snapshot-jLRLXR/</url>
-                    <releases>
-                        <enabled>false</enabled>
-                    </releases>
-                    <snapshots>
-                        <enabled>true</enabled>
-                    </snapshots>
+                    <id>central</id>
+                    <url>http://maven.aliyun.com/nexus/content/groups/public</url>
                 </pluginRepository>
             </pluginRepositories>
         </profile>
 
     </profiles>
-
-    <activeProfiles>
-        <activeProfile>nexus</activeProfile>
-
-    </activeProfiles>
-
 
 </settings>
